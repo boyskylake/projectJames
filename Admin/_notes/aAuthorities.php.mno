@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_authorities" value="name:authorities_id;datatype:int,name:Activities_library;datatype:string,name:authorities_user;datatype:string,name:authorities_password;datatype:string,name:authorities_prefix;datatype:string,name:authorities_name;datatype:string,name:authorities_sex;datatype:string,name:authorities_date;datatype:int,name:authorities_Month;datatype:int,name:authorities_Year;datatype:int,name:authorities_age;datatype:string,name:authorities_career;datatype:string,name:authorities_address;datatype:string,name:authorities_province;datatype:string,name:authorities_zipCode;datatype:string,name:authorities_phone1;datatype:string,name:authorities_phone2;datatype:string,name:authorities_contact;datatype:string,name:authorities_mail;datatype:string,name:authorities_form;datatype:string" />
+</info>

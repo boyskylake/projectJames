@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Library" value="name:Library_id;datatype:int,name:Library_Library;datatype:string" />
+	<infoitem key="UD_News" value="name:News_id;datatype:int,name:News_library;datatype:string,name:News_subject;datatype:string,name:News_information;datatype:string,name:News_date;datatype:date,name:News_write;datatype:string,name:News_form;datatype:string" />
+</info>

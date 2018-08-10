@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_edie" value="name:MainCategory_id;datatype:int,name:MainCategory_book;datatype:string" />
+</info>

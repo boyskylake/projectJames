@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Subjects" value="name:categories_id;datatype:int,name:categories_book;datatype:string" />
+</info>

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Library" value="name:Library_id;datatype:int,name:Library_Library;datatype:string" />
+</info>

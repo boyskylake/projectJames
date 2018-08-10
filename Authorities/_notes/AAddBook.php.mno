@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_maincategory" value="name:MainCategory_id;datatype:int,name:MainCategory_book;datatype:string" />
+	<infoitem key="UD_categorise" value="name:categories_id;datatype:int,name:categories_book;datatype:string" />
+	<infoitem key="UD_Library" value="name:Library_id;datatype:int,name:Library_Library;datatype:string" />
+</info>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_information" value="name:information_id;datatype:int,name:information_library;datatype:string,name:information_history;datatype:string,name:information_philosophy;datatype:string,name:information_vision;datatype:string,name:information_mission;datatype:string,name:information_data;datatype:date" />
+	<infoitem key="UD_Library" value="name:Library_id;datatype:int,name:Library_Library;datatype:string" />
+</info>
