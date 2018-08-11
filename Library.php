@@ -346,7 +346,7 @@ $sqlCat="SELECT * FROM  nt_act where status_act='1' ";
                   <font size="2">
                     <?php echo  $message = substr($resutCat['detail_act'],0,40)."&nbsp;..."; ?>
                   </font><br />
-                  <font  size="2"><a href="view_news.php?id_act=<?php echo $resutCat["id_act"];?>"  title="ดูรายละเอียด" >ดูรายละเอียด...</a></font> </td>
+                  <font  size="2"><a href="view_activity.php?id_act=<?php echo $resutCat["id_act"];?>"  title="ดูรายละเอียด" >ดูรายละเอียด...</a></font> </td>
             </tr>
           </tbody>
         </table>

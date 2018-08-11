@@ -38,13 +38,13 @@
         <div class="col-md-9">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <p class="active nav-link">รายละเอียดข่าวประชาสัมพัมพันธ์</p>
+              <p class="active nav-link">รายละเอียดกิจกรรม</p>
             </li>
 
             <li>
       <?php 
       include("includes/config.php");                                         
-      $sql = "SELECT * FROM  nw_news where id_act = ".$_GET['id_act']." ";
+      $sql = "SELECT * FROM  nt_act where id_act = ".$_GET['id_act']." ";
       $dbq=mysqli_query($conn,$sql) or die ("Erorr : ");
       $numrow=mysqli_num_rows($dbq); 
       if($numrow > 0)
@@ -75,8 +75,8 @@
                           <tr>
                             <td>
                              
-                             <p><b>ชื่อข่าวประชาสัมพัมพันธ์ : </b> <?php echo $name_act?> </p>
-                             <p><b>เวลาข่าวประชาสัมพัมพันธ์ : </b><?php echo $date_act?></p> 
+                             <p><b>ชื่อกิจกรรม : </b> <?php echo $name_act?> </p>
+                             <p><b>เวลากิจกรรม : </b><?php echo $date_act?></p> 
                              <p><b>รายละเอียด : </b> <?php echo $detail_act?></p>
      
                             </td>
@@ -105,22 +105,22 @@
                <!-- <div align="left">
                   <span class="style37"> -->
               <?php
-              $strSQL = "SELECT * FROM nw_news where id_act = ".$id_act." ";
+              $strSQL = "SELECT * FROM nt_act where id_act = ".$id_act." ";
               $objQuery = mysqli_query($conn,$strSQL);
                $objResult = mysqli_fetch_array($objQuery);
 
-                 echo"<p><b>ภาพข่าวประชาสัมพัมพันธ์ : </b>".$objResult['name_act']."</p>";
+                 echo"<p><b>ภาพกิจกรรม : </b>".$objResult['name_act']."</p>";
                  
-                  $strSQL = "SELECT * FROM nw_photo where id_act=".$id_act." ORDER BY id_photo ASC ";
+                  $strSQL = "SELECT * FROM nt_photo where id_act=".$id_act." ORDER BY id_photo ASC ";
                   $objQuery = mysqli_query($conn,$strSQL);
                   $objResult = mysqli_fetch_array($objQuery);
                   if(!$objResult)
                 {
-                echo"<img src='Authorities/news/images/9MNUSsbvD0i.png'  width='32' height='32' /><font color='#000000' face='Tahoma' size='1'> ยังไม่ได้เพิ่มรูปภาพใดๆ </font>";
+                echo"<img src='Authorities/activity/images/9MNUSsbvD0i.png'  width='32' height='32' /><font color='#000000' face='Tahoma' size='1'> ยังไม่ได้เพิ่มรูปภาพใดๆ </font>";
                 }
                 else
                 { 
-                  $strSQL = "SELECT * FROM nw_photo where id_act='$id_act' ORDER BY id_photo ASC ";
+                  $strSQL = "SELECT * FROM nt_photo where id_act='$id_act' ORDER BY id_photo ASC ";
                   $objQuery = mysqli_query($conn,$strSQL) or die ("Error Query [".$strSQL."]");
                   echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";   
                   $intRows = 0;
@@ -141,7 +141,7 @@
                           </tr>
                           <tr>
                             <td></td>
-                            <td valign="top"><a href="Authorities/news/myphoto/<?php echo $objResult["name_photo"];?>" rel="lightbox[roadtrip]"><img src="Authorities/news/myphoto/<?php echo $objResult["name_photo"];?>" width="120" border="0" /></a></td>
+                            <td valign="top"><a href="Authorities/activity/myphoto/<?php echo $objResult["name_photo"];?>" rel="lightbox[roadtrip]"><img src="Authorities/activity/myphoto/<?php echo $objResult["name_photo"];?>" width="120" border="0" /></a></td>
                             <td></td>
                           </tr>
                           <tr>
