@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2018 at 04:48 PM
+-- Generation Time: Aug 30, 2018 at 11:55 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -432,9 +432,9 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`member_id`, `member_Library`, `member_user`, `member_Password`, `member_Prefix`, `member_Name`, `member_sex`, `member_Birth`, `member_Age`, `member_Education`, `member_career`, `member_HouseNumber`, `member_province`, `member_Zip`, `member_Phone1`, `member_Phone2`, `member_EasyContact`, `member_MembershipType`, `member_Registration`, `member_ExpiredDate`, `member_Email`, `member_Image`, `member_Parent`, `member_Relationship`, `member_Contact`, `member_Telephone`, `member_Status`) VALUES
-(3, 'กศน.อำเภอภูพาน', '', 1234, '', '', '', '0000-00-00', 0, 'ประถมศึกษา', '', '', '', 0, 0, 0, '', '', '0000-00-00', '0000-00-00', '', 'DSC_0155_Cover.jpg', '', '', '', 0, 'ไม่ใช้งาน'),
+(3, 'กศน.อำเภอภูพาน', 'boy', 1234, '', '', '', '0000-00-00', 0, 'ประถมศึกษา', '', '', '', 0, 0, 0, '', '', '0000-00-00', '0000-00-00', '', 'DSC_0155_Cover.jpg', '', '', '', 0, 'ไม่ใช้งาน'),
 (4, 'กศน.อำเภอสว่างแดนดิน', '1101800817719', 9999, 'นาย', 'พงษ์นรินทร์ ท้ายปาก', 'อื่นๆ', '2018-08-18', 0, 'อนุปริญญา', 'ค้าขาย', '215 หมู่ 11 บ้าน นาคำ', 'นครพนม', 48150, 981164971, 5849898, 'zsdgfgdsfg', 'ตลอดชีพ', '2018-07-22', '0000-00-00', 'boyskylab96@gmail.com', '138208395120180809_085227.jpg', 'ผู้ปกครอง', 'ความสัมพันธ์กับผู้สมัคร', 'fghsfdgdfgdgsfgsdfg', 2147483647, 'ใช้งาน'),
-(6, '', 'james', 1234, '', '', '', '0000-00-00', 0, '', '', '', '', 0, 0, 0, '', '', '2018-07-27', '2019-07-27', '', '17683952620180809_085156.jpg', '', '', '', 2147483647, 'ไม่ใช้งาน'),
+(6, '', 'james', 1234, '', 'พงษ์นรินทร์ ท้ายปาก', '', '0000-00-00', 0, '', '', '', '', 0, 0, 0, '', '', '2018-07-27', '2019-07-27', '', '17683952620180809_085156.jpg', '', '', '', 2147483647, 'ไม่ใช้งาน'),
 (7, 'กศน.อำเภอเมืองสกลนคร', 'iหัสสมาชิก', 957195867, 'คำนำหน้า', 'ชื่อสมาชิก', 'หญิง', '2018-08-09', 0, 'ปริญญาเอกหรือสูงกว่า', 'นักเรียน,นักศึกษา', '215 หมู่ 11 บ้าน นาคำ', 'นครพนม', 48110, 957195867, 957195867, 'สถานที่ติดต่อได้ง่าย :	', 'ตลอดชีพ', '2018-08-16', '2018-08-25', 'Miwmaomao@gmail.com', '105935153520180809_085105.jpg', 'ผู้ปกครอง', 'ความสัมพันธ์กับผู้สมัคร', 'ที่อยู่ที่ติดต่อได้', 957195867, 'ใช้งาน'),
 (8, 'กศน.อำเภอโคกศรีสุพรรณ', '58102105121', 123456, 'ฟหกฟหก', 'ฟหกฟหก', 'หญิง', '2018-01-19', 0, 'มัธยมศึกษาตอนปลาย', 'รับราชการ', '215 หมู่ 11 บ้าน นาคำ', 'นครพนม', 48150, 957195867, 957195867, 'สถานที่ติดต่อได้ง่าย :	', '', '2018-08-09', '0000-00-00', 'boyskylab96@gmail.com', '213185205920180809_224041.jpeg', 'ผู้ปกครอง', 'ความสัมพันธ์กับผู้สมัคร', 'ที่อยู่ที่ติดต่อได้ :	', 957195867, 'สมาชิกใหม่');
 
@@ -578,6 +578,63 @@ INSERT INTO `nw_photo` (`id_photo`, `name_photo`, `id_act`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `order_detail`
+--
+
+CREATE TABLE `order_detail` (
+  `id` int(11) NOT NULL,
+  `id_stock` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `b_codes` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `b_isbn` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `b_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `b_library` text COLLATE utf8_unicode_ci NOT NULL,
+  `date_receive` date NOT NULL,
+  `date_return` date NOT NULL,
+  `status` enum('รอตวรจสอบ','รอรับหนังสือ','คืนแล้ว') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'รอตวรจสอบ'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+INSERT INTO `order_detail` (`id`, `id_stock`, `name`, `b_codes`, `b_isbn`, `b_name`, `b_library`, `date_receive`, `date_return`, `status`) VALUES
+(1, '1', 'พงษ์นรินทร์ ท้ายปาก', '1', '21', '7', 'กศน.อำเภอเมืองสกลนคร', '0000-00-00', '0000-00-00', 'รอรับหนังสือ'),
+(2, '1', 'พงษ์นรินทร์ ท้ายปาก', '1', '21', '7', 'กศน.อำเภอเมืองสกลนคร', '0000-00-00', '0000-00-00', 'รอตวรจสอบ'),
+(3, '1', 'พงษ์นรินทร์ ท้ายปาก', '', '', '', 'กศน.อำเภอวาริชภูมิ', '0000-00-00', '0000-00-00', 'รอตวรจสอบ'),
+(4, '2', 'พงษ์นรินทร์ ท้ายปาก', '1', '21', '7', 'กศน.อำเภอเมืองสกลนคร', '0000-00-00', '0000-00-00', 'คืนแล้ว'),
+(5, '2', 'พงษ์นรินทร์ ท้ายปาก', '1', '21', '7', 'กศน.อำเภอเมืองสกลนคร', '0000-00-00', '0000-00-00', 'คืนแล้ว'),
+(6, '2', 'พงษ์นรินทร์ ท้ายปาก', '', '', '', 'กศน.อำเภอวาริชภูมิ', '0000-00-00', '0000-00-00', 'คืนแล้ว'),
+(7, '3', 'พงษ์นรินทร์ ท้ายปาก', '', '', '', 'กศน.อำเภอวาริชภูมิ', '0000-00-00', '0000-00-00', 'รอตวรจสอบ'),
+(8, '3', 'พงษ์นรินทร์ ท้ายปาก', 'รหัสหนังสือ', 'ISBN', 'ชื่อหนังสือ', 'กศน.อำเภอบ้านม่วง', '0000-00-00', '0000-00-00', 'รอตวรจสอบ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_stock`
+--
+
+CREATE TABLE `order_stock` (
+  `id_stock` int(15) NOT NULL,
+  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `id_user` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `amount` int(15) NOT NULL,
+  `Date` date NOT NULL,
+  `status` enum('รอตรวจสอบ','รอรับ','รับแล้ว') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'รอตรวจสอบ'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `order_stock`
+--
+
+INSERT INTO `order_stock` (`id_stock`, `username`, `id_user`, `amount`, `Date`, `status`) VALUES
+(1, 'james', '', 3, '2018-08-29', 'รับแล้ว'),
+(2, 'james', '', 3, '2018-08-29', 'รอรับ'),
+(3, 'james', '6', 2, '2018-08-30', 'รอตรวจสอบ');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `personnel`
 --
 
@@ -625,7 +682,16 @@ INSERT INTO `reply` (`ReplyID`, `QuestionID`, `CreateDate`, `Details`, `Name`) V
 (00004, 00023, '2018-08-05 14:08:13', 'sdfsadfsadf', 'sdafsdfsd'),
 (00005, 00023, '2018-08-05 14:11:30', 'tghsdfgfdg\r\nfgsfdg\r\nsdfgdsfg\r\nsdfg\r\n', 'gfhfdghfg'),
 (00006, 00023, '2018-08-05 14:14:04', '', ''),
-(00007, 00023, '2018-08-09 21:36:12', '', 'พงษ์นรินทร์ ท้ายปาก');
+(00007, 00023, '2018-08-09 21:36:12', '', 'พงษ์นรินทร์ ท้ายปาก'),
+(00008, 00015, '2018-08-28 23:44:26', 'rgergerg', 'พงษ์นรินทร์ ท้ายปาก'),
+(00009, 00015, '2018-08-28 23:44:28', 'ergerger', 'พงษ์นรินทร์ ท้ายปาก'),
+(00010, 00015, '2018-08-28 23:44:30', 'ergergerg', 'พงษ์นรินทร์ ท้ายปาก'),
+(00011, 00015, '2018-08-28 23:44:32', 'ergergerg', 'พงษ์นรินทร์ ท้ายปาก'),
+(00012, 00021, '2018-08-28 23:44:43', 'gerg', 'พงษ์นรินทร์ ท้ายปาก'),
+(00013, 00020, '2018-08-28 23:44:58', 'ergergerg', 'พงษ์นรินทร์ ท้ายปาก'),
+(00014, 00023, '2018-08-28 23:45:06', '', 'พงษ์นรินทร์ ท้ายปาก'),
+(00015, 00022, '2018-08-28 23:45:12', 'ergerg', 'พงษ์นรินทร์ ท้ายปาก'),
+(00016, 00019, '2018-08-28 23:45:36', 'rththtr', 'พงษ์นรินทร์ ท้ายปาก');
 
 -- --------------------------------------------------------
 
@@ -660,15 +726,15 @@ INSERT INTO `webboard` (`QuestionID`, `CreateDate`, `Question`, `Details`, `Name
 (00010, '2012-03-22 15:37:54', 'I used to. Focus () the cursor to the last scene of the text in the textbox	', 'Detail for : I used to. Focus () the cursor to the last scene of the text in the textbox	', 'oasiis', 0, 0),
 (00011, '2012-03-22 15:37:54', 'Help write the story to me in my OOP database postgresql	', 'Detail for : Help write the story to me in my OOP database postgresql	', 'minutes', 0, 0),
 (00012, '2012-03-22 15:37:54', 'Config file that loads the message id, message value to a system call to load the config of this post.	', 'Detail for : Config file that loads the message id, message value to a system call to load the config of this post.	', 'ago', 1, 0),
-(00013, '2012-03-22 15:37:54', 'Hope to see the Code during my search. Asp	', 'Detail for : Hope to see the Code during my search. Asp	', 'A', 1, 0),
+(00013, '2012-03-22 15:37:54', 'Hope to see the Code during my search. Asp	', 'Detail for : Hope to see the Code during my search. Asp	', 'A', 2, 0),
 (00014, '2012-03-22 15:37:54', 'The value in the textbox value from db where the textbox is in the dropdown to change the value from the db as well	', 'Detail for : The value in the textbox value from db where the textbox is in the dropdown to change the value from the db as well	', 'jum', 0, 0),
-(00015, '2012-03-22 15:37:54', 'jquery ui datepicker calendar. Assistance in the form of redundancy	', 'Detail for : jquery ui datepicker calendar. Assistance in the form of redundancy	', 'Prairie', 2, 0),
+(00015, '2012-03-22 15:37:54', 'jquery ui datepicker calendar. Assistance in the form of redundancy	', 'Detail for : jquery ui datepicker calendar. Assistance in the form of redundancy	', 'Prairie', 7, 4),
 (00016, '2012-03-22 16:12:24', 'How to use php and mysql database', 'Dear all,\r\nI am need to connect php to mysql database please suggest source code to tutorial.', 'mr.win', 4, 2),
-(00019, '2018-08-05 13:15:27', 'test', 'asdfasdfasdfa', 'skylake', 1, 0),
-(00020, '2018-08-05 13:19:04', 'dasdsad', 'asdasdsad', 'sadsadasd', 0, 0),
-(00021, '2018-08-05 13:20:56', 'dasdsad', 'asdasdsad', 'sadsadasd', 0, 0),
-(00022, '2018-08-05 13:23:44', 'sdasdsa', 'asdsadasd', 'fasdfasdfa', 11, 0),
-(00023, '2018-08-05 13:38:49', 'terset123', 'dsfasgafdvadfvasddsavsda\r\ndsvasdfvasdfasd\r\nvcsad\r\nvcasd\r\nv', 'testset3r', 57, 5),
+(00019, '2018-08-05 13:15:27', 'test', 'asdfasdfasdfa', 'skylake', 3, 1),
+(00020, '2018-08-05 13:19:04', 'dasdsad', 'asdasdsad', 'sadsadasd', 3, 1),
+(00021, '2018-08-05 13:20:56', 'dasdsad', 'asdasdsad', 'sadsadasd', 5, 1),
+(00022, '2018-08-05 13:23:44', 'sdasdsa', 'asdsadasd', 'fasdfasdfa', 16, 1),
+(00023, '2018-08-05 13:38:49', 'terset123', 'dsfasgafdvadfvasddsavsda\r\ndsvasdfvasdfasd\r\nvcsad\r\nvcasd\r\nv', 'testset3r', 60, 6),
 (00024, '2018-08-09 21:36:04', '', '', 'พงษ์นรินทร์ ท้ายปาก', 0, 0);
 
 --
@@ -760,6 +826,21 @@ ALTER TABLE `nw_photo`
   ADD PRIMARY KEY (`id_photo`);
 
 --
+-- Indexes for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_stock` (`id_stock`),
+  ADD KEY `id_stock_3` (`id_stock`),
+  ADD KEY `id_stock_2` (`id_stock`) USING BTREE;
+
+--
+-- Indexes for table `order_stock`
+--
+ALTER TABLE `order_stock`
+  ADD PRIMARY KEY (`id_stock`);
+
+--
 -- Indexes for table `personnel`
 --
 ALTER TABLE `personnel`
@@ -797,7 +878,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `authorities`
 --
 ALTER TABLE `authorities`
-  MODIFY `authorities_id` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `authorities_id` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `book`
@@ -866,6 +947,18 @@ ALTER TABLE `nw_photo`
   MODIFY `id_photo` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `order_stock`
+--
+ALTER TABLE `order_stock`
+  MODIFY `id_stock` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `personnel`
 --
 ALTER TABLE `personnel`
@@ -875,7 +968,7 @@ ALTER TABLE `personnel`
 -- AUTO_INCREMENT for table `reply`
 --
 ALTER TABLE `reply`
-  MODIFY `ReplyID` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ReplyID` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `webboard`

@@ -130,10 +130,18 @@ $rs = mysqli_fetch_assoc($book);
                 </td>
               </tr>
               </table>
+            <div align="center"> <br><button type="button" class="btn btn-info" onclick="sendValue('<?php echo $book_id; ?>');">ทำการจอง</button></div>  
         </div>
       </div> 
     </div>
    <br>
    <br>
+   <script type="text/javascript">
+        function sendValue(value)
+        {
+        window.opener.updateValue(value);
+        window.close();
+        }
+    </script>
 </body>
 </html>

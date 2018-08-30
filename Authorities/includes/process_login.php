@@ -41,7 +41,7 @@ require('config.php');
 					{
 						$_SESSION=array();
 						$_SESSION['unm']=$row['member_user'];
-						$_SESSION['uid']=$row['member_Password'];
+						$_SESSION['uid']=$row['member_id'];
 						$_SESSION['status']='member';
 						header("location:../Library.php");
 					}

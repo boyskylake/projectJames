@@ -1,4 +1,3 @@
-
 <?php
 	$itemname = $_POST['itemname'];
 	$booksearch = $_POST['booksearch'];
@@ -126,6 +125,12 @@
     ?>
      <script type="text/javascript">
     function getpopup(id) {
-  window.open('view_book.php?book_id='+id,'','width=700, height=700, scrollbars=yes, resizable=no');
-}
+      window.open('view_book.php?book_id='+id,'','width=700, height=700, scrollbars=yes, resizable=no');
+    }
+
+    function updateValue(value){
+    // this gets called from the popup window and updates the field with a new value
+    // document.getElementById(pid).value = value;
+    window.location='Order.php?book_id='+value;
+    }
   </script>

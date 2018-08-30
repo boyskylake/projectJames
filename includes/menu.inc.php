@@ -17,6 +17,14 @@
                           if(isset($_SESSION['status']))
                                 {
                                   echo '<li class="nav-item">
+                                        
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">การจอง</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="Order.php">สั่งจอง</a>
+                <a class="dropdown-item" href="Order_status.php">ติดตามการจอง</a>
+              </div></li>';
+                                  
+                                  echo '<li class="nav-item">
                                         <a class="nav-link" href="logout.php">ออกจากระบบ</a>
                                         </li>';
                                 }
