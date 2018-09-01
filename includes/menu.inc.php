@@ -31,7 +31,7 @@
                                 else
                                 {
                                   echo '<li class="nav-item">
-                                      <a class="nav-link" href="RPerson.php">สมัครสมาชิก</a>
+                                      <a class="nav-link" href="rperson.php">สมัครสมาชิก</a>
                                     </li>';
                                 }
              ?>

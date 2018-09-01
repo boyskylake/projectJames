@@ -32,9 +32,6 @@
         </div>
         <?php 
             include 'includes/config.php';
-
-         
-             
          ?>
         <div class="col-md-9">
             <ul class="nav nav-pills flex-column">
@@ -44,17 +41,17 @@
               <br>
               <?php 
               $uid = $_SESSION['uid'];
-
+                // echo $uid;
                 $sqlid = "SELECT * FROM `order_stock` WHERE `id_user` = '".$uid."'";
                     $quid = mysqli_query($conn,$sqlid) or die("wrong query");
                     $resuid = mysqli_fetch_array($quid);
 
       if (!empty($resuid['id_user'])) 
       {
-        $id_stock = $resuid['id_stock'];
 
                 if(isset($_SESSION['status']))
                   {
+                   
               ?>
                 <table class="table">
                   <thead>
@@ -67,12 +64,21 @@
                   </thead>
                   <tbody>
               <?php 
-                  $sql = "SELECT *,COUNT(`id_stock`) AS stock FROM order_detail WHERE id_stock = '".$id_stock."' GROUP BY id_stock";
-                    $query = mysqli_query($conn,$sql) or die("wrong query");
+                $sqlid2 = "SELECT * FROM `order_stock` WHERE `id_user` = '".$uid."'";
+                $quid2 = mysqli_query($conn,$sqlid) or die("wrong query");
+                
 
-                  // $sql = "SELECT `Date` FROM `order_stock` WHERE `id_stock` = '".."'";
-                  while($result=mysqli_fetch_array($query))
+                while($resuid2 = mysqli_fetch_array($quid2))
                 {
+                $id_stock = $resuid2['id_stock'];
+                // echo $id_stock;
+
+                  $sql1 = "SELECT *,COUNT(`id_stock`) AS stock FROM order_detail WHERE id_stock = '".$id_stock."' GROUP BY id_stock";
+                    $query = mysqli_query($conn,$sql1) or die("wrong query");
+                    $result = mysqli_fetch_array($query);
+                    // while(
+                    // {
+                 
               ?>
                     <tr>
                       <th scope="row"><?php echo $result["id_stock"]; ?></th>
@@ -86,14 +92,15 @@
               </span>
             </td>
                   <?php 
-                    $sql = "SELECT * FROM `order_stock` WHERE `id_stock` = '".$result["id_stock"]."'";
-                    $query1 = mysqli_query($conn,$sql) or die("wrong query");
+                    $sql2 = "SELECT * FROM `order_stock` WHERE `id_stock` = '".$result["id_stock"]."'";
+                    $query1 = mysqli_query($conn,$sql2) or die("wrong query");
                     $result1 = mysqli_fetch_array($query1)
                    ?>
                       <td><?php echo $result1["status"]; ?></td>
                       <td><?php echo $result1["Date"]; ?></td>
                     </tr>
             <?php
+                    // }
             }
             ?>
                   </tbody>

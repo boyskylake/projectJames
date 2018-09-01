@@ -12,7 +12,10 @@
 			      $strSQL .="status = '$status'"; 
 			      $strSQL .="WHERE id_stock = '$id'";
 
-				  mysqli_query($conn,$strSQL) or die(mysqli_error());
+				  mysqli_query($conn,$strSQL) or die(mysqli_error($conn));
 		}  
-		header('Location:ABookList.php');
+		// header('Location:ABookList.php');
  ?>
+ <script>
+	window.location='ABookList.php';
+</script>

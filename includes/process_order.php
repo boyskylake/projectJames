@@ -31,7 +31,7 @@
           $res4 = $result['book_Library'];
          
          // echo $res1;
-        $q2 = "INSERT INTO `order_detail` (`id_stock`, `name`, `b_codes`, `b_isbn`, `b_name`,  `b_library`) 
+        $q2 = "INSERT INTO `order_detail` (`id_stock`,`name`,`b_codes`,`b_isbn`,`b_name`,`b_library`) 
         VALUES ('$last_id','$name','$res1','$res2','$res3','$res4')";
 
          mysqli_query($conn,$q2) or die("wrong query".mysqli_error($conn));
@@ -41,5 +41,5 @@
 ?>
 
 <script>
-	window.location='../Order.php';
+	window.location='../Order_status.php';
 </script>

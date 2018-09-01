@@ -66,7 +66,7 @@ require('config.php');
 					{
 						$_SESSION=array();
 						$_SESSION['unm']=$row['authorities_user'];
-						// $_SESSION['uid']=$row['authorities_password'];
+						$_SESSION['uid']=$row['authorities_id'];
 						$_SESSION['name'] = $row['authorities_name'];
 						$_SESSION['status']='staff';
 						header("location:../Authorities/Authorities.php");

@@ -145,7 +145,7 @@ $totalPages_Member = ceil($totalRows_Member/$maxRows_Member)-1;
 <br>
   <script type="text/javascript">
     function getpopup(id) {
-  window.open('view_aMember.php?member_id='+id,'','width=700, height=700, scrollbars=yes, resizable=no');
+  window.open('view_aMember.php?id='+id,'','width=700, height=700, scrollbars=yes, resizable=no');
 }
   </script>
             <?php

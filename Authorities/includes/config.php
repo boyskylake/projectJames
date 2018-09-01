@@ -1,13 +1,9 @@
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
+$servername = "127.0.0.1:51335";
+$username = "azure";
+$password = "6#vWHD_$";
 $database = "library_11";
 
-// $servername = "127.0.0.1:53111";
-// $username = "azure";
-// $password = "6#vWHD_$";
-// $database = "localdb";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {

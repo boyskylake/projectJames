@@ -42,6 +42,7 @@ require('config.php');
 						$_SESSION=array();
 						$_SESSION['unm']=$row['member_user'];
 						$_SESSION['uid']=$row['member_id'];
+						$_SESSION['name'] = $row['member_Name'];
 						$_SESSION['status']='member';
 						header("location:../Library.php");
 					}
@@ -65,7 +66,8 @@ require('config.php');
 					{
 						$_SESSION=array();
 						$_SESSION['unm']=$row['authorities_user'];
-						$_SESSION['uid']=$row['authorities_password'];
+						$_SESSION['uid']=$row['authorities_id'];
+						$_SESSION['name'] = $row['authorities_name'];
 						$_SESSION['status']='staff';
 						header("location:../Authorities/Authorities.php");
 					}
@@ -88,7 +90,8 @@ require('config.php');
 					{
 						$_SESSION=array();
 						$_SESSION['unm']=$row['a_unm'];
-						$_SESSION['uid']=$row['a_pwd'];
+						// $_SESSION['uid']=$row['a_pwd'];
+						$_SESSION['name'] = $row['a_name'];
 						$_SESSION['status']='admin';
 						header("location:../Admin/addmin.php");
 					}

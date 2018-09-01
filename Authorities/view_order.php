@@ -21,7 +21,7 @@ $result = mysqli_fetch_assoc($order);
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    $("#rev_date,#re_date").datepicker({
+    $("#rev_date,#return_date").datepicker({
     changeMonth: true, 
     changeYear: true,
     dateFormat: 'dd-mm-yy', 
@@ -76,17 +76,17 @@ $result = mysqli_fetch_assoc($order);
                       <td><?php echo $rs["b_isbn"]; ?></td>
                       <td><?php echo $rs["b_library"]; ?></td>
       
-                      <td><input name="daterev[]" type="text" id="rev_date" value="<?php echo $rs["date_receive"]; ?>"> </td>
-                      <td><input name="datereturn[]" type="text" id="re_date" value="<?php echo $rs["date_return"]; ?>"> </td>
+                      <td><input name="daterev[]" type="date"  value="<?php echo $rs["date_receive"]; ?>"> </td>
+                      <td><input name="date_return[]" type="date"  value="<?php echo $rs["date_return"]; ?>"> </td>
+                      
 
                       <td>
                         <select name="status[]">
-                          <option value="รอตวรจสอบ" <?php if($rs["status"] == "รอตวรจสอบ") echo 'selected'; ?> >รอตวรจสอบ</option>
+                          <option value="รอตวรจสอบ" <?php if($rs["status"] == "รอตวรจสอบ") echo 'selected'; ?> >รอตรวจสอบ</option>
                           <option value="รอรับหนังสือ" <?php if($rs["status"] == "รอรับหนังสือ") echo "selected"; ?> >รอรับหนังสือ</option>
                           <option value="คืนแล้ว" <?php if($rs["status"] == "คืนแล้ว") echo "selected"; ?> >คืนแล้ว</option>
                         </select>
                         <input hidden type="text" name="id[]" value="<?php echo $rs["id"]; ?>">
-                        <input hidden type="text" name="id_stock" value="<?php echo $order_id ?>">
                       </td>
                     </tr>
             <?php
@@ -96,7 +96,7 @@ $result = mysqli_fetch_assoc($order);
             ?>
                   </tbody>
                 </table>
-
+                <input hidden type="text" name="id_stock" value="<?php echo $order_id ?>">
               <div align="center">
                 <a href="ABookList.php" class="btn btn-info">กลับ</a>
                 <button type="submit" class="btn btn-info" >บันทึก</button>

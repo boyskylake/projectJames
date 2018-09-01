@@ -61,7 +61,7 @@
                       <td><a href="#" class="btn btn-success"><?php echo $result1["name"]; ?></a></td>
 
                       <td><select name="status[]">
-                          <option value="รอตวรจสอบ" <?php if($result["status"] == "รอตวรจสอบ") echo 'selected'; ?> >รอตวรจสอบ</option>
+                          <option value="รอตรวจสอบ" <?php if($result["status"] == "รอตรวจสอบ") echo 'selected'; ?> >รอตวรจสอบ</option>
                           <option value="รอรับ" <?php if($result["status"] == "รอรับ") echo "selected"; ?> >รอรับ</option>
                           <option value="รับแล้ว" <?php if($result["status"] == "รับแล้ว") echo "selected"; ?> >รับแล้ว</option>
                         </select>

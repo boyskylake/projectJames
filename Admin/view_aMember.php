@@ -1,13 +1,11 @@
 <?php 
 include 'includes/config.php';
-if (isset($_GET['member_id'])) {
-  $colname_Member = $_GET['member_id'];
+if (isset($_GET['id'])) {
+  $memid = $_GET['id'];
 }
-$query_Member = "SELECT * FROM member WHERE member_id = ".$colname_Member." ";
-$Member = mysqli_query($conn, $query_Member) or die(mysqli_error($conn));
-$rs = mysqli_fetch_assoc($Member);
-// $totalRows_Member = mysqli_num_rows($row_Member);
-// $member_Library = $row_Member
+$query = "SELECT * FROM `member` WHERE `member_id` = ".$memid." ";
+$memque = mysqli_query($conn,$query) or die(mysqli_error($conn));
+$rs = mysqli_fetch_assoc($memque);
 ?>
 
 <!DOCTYPE html>
@@ -23,19 +21,17 @@ $rs = mysqli_fetch_assoc($Member);
 
     <div class="container">
       <div class="row">
-      </div>
-      <div class="row">
         <div class="col-md-12">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a href="#" class="active nav-link">ข้อมูลสมาชิก</a>
+              <p class="active nav-link">ข้อมูลสมาชิก</p>
             </li>
           </ul>
           <br>
             <table width="100%">
               <tr>
                 <td width="200" style="text-align: right; vertical-align: top;">
-                  <?php
+                  <?php                  
                     if($rs["member_Image"] == '0') {
                       $img = 'nopicture.png';
                     }else {
