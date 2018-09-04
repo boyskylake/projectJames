@@ -21,33 +21,34 @@
   <?php														
 include("../includes/config.php");
 $name_act = $_POST['name_act'];
-$strSQL = "SELECT * FROM nt_act where name_act = ".$name_act." ";
-$objQuery = mysqli_query($conn,$strSQL);
-$objResult = mysqli_fetch_array($objQuery);
-if ($objQuery) {
-    if($objResult['name_act'] = $name_act)
-      {
-      echo "<meta http-equiv=refresh content=3;URL=data_act_add.php>";
-      }
-}
-else
-{
-$date_in = date("d-m-Y");
-$strSQL = "INSERT INTO nt_act ";
-$strSQL .="(id_act,name_act,date_act,detail_act,id_photo,date_in,status_act) "; 
-$strSQL .="VALUES "; 
-$strSQL .="('','".$_POST["name_act"]."','".$_POST["date_act"]."','".$_POST["detail_act"]."','','$date_in','') "; 
-$objQuery = mysqli_query($conn,$strSQL); 
-if($objQuery) 
-{  
-echo "<script type='text/javascript'>alert('successfully');</script>";
-echo "<meta http-equiv=refresh content=0;URL=data_act.php>";
-} 
-else
-{    
-echo "Error Save [".$strSQL."]"; 
-} 
-}
+$strSQL1 = "SELECT * FROM nt_act where name_act = '".$name_act."' ";
+$objQuery1 = mysqli_query($conn,$strSQL1);
+$res =  $objQuery1->fetch_assoc();
+  $name = $res['name_act'];
+
+  if ($name == $name_act) {
+      
+        echo "<meta http-equiv=refresh content=3;URL=data_act_add.php>";
+        exit();
+  }
+  else
+  {
+      $date_in = date("d-m-Y");
+      $strSQL = "INSERT INTO nt_act ";
+      $strSQL .="(name_act,date_act,detail_act,id_photo,date_in,status_act) "; 
+      $strSQL .="VALUES "; 
+      $strSQL .="('".$_POST["name_act"]."','".$_POST["date_act"]."','".$_POST["detail_act"]."','','$date_in','0')"; 
+      $objQuery = mysqli_query($conn,$strSQL); 
+      if($objQuery) 
+      {  
+        echo "<script type='text/javascript'>alert('successfully');</script>";
+        echo "<meta http-equiv=refresh content=0;URL=data_act.php>";
+      } 
+      else
+      {    
+        echo "Error Save [".$strSQL."]"; 
+      } 
+  }
 mysqli_close($conn); 
 ?>
 

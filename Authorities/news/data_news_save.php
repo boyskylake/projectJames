@@ -21,33 +21,34 @@
   <?php														
 include("../includes/config.php");
 $name_act = $_POST['name_act'];
-$strSQL = "SELECT * FROM nw_news where name_act = ".$name_act." ";
+$strSQL = "SELECT * FROM nw_news WHERE `name_act` = '".$name_act."'";
 $objQuery = mysqli_query($conn,$strSQL);
-$objResult = mysqli_fetch_array($objQuery);
-if ($objQuery) {
-    if($objResult['name_act'] = $name_act)
-      {
-      echo "<meta http-equiv=refresh content=3;URL=data_act_add.php>";
-      }
-}
-else
-{
-$date_in = date("d-m-Y");
-$strSQL = "INSERT INTO nw_news ";
-$strSQL .="(id_act,name_act,date_act,detail_act,id_photo,date_in,status_act) "; 
-$strSQL .="VALUES "; 
-$strSQL .="('','".$_POST["name_act"]."','".$_POST["date_act"]."','".$_POST["detail_act"]."','','$date_in','') "; 
-$objQuery = mysqli_query($conn,$strSQL); 
-if($objQuery) 
-{  
-echo "<script type='text/javascript'>alert('successfully');</script>";
-echo "<meta http-equiv=refresh content=0;URL=data_news.php>";
-} 
-else
-{    
-echo "Error Save [".$strSQL."]"; 
-} 
-}
+$res =  $objQuery->fetch_assoc();
+  $name_news = $res['name_act'];
+
+  if ($name_news == $name_act) {
+      echo "มีชื่อนี้แล้ว กรุณาใส่ชื่ออื่น";
+      echo "<meta http-equiv=refresh content=3;URL=data_news_add.php>";  
+      exit();
+  }
+  else
+  { 
+      $date_in = date("d-m-Y");
+      $strSQL = "INSERT INTO nw_news ";
+      $strSQL .="(name_act,date_act,detail_act,id_photo,date_in,status_act) "; 
+      $strSQL .="VALUES "; 
+      $strSQL .="('".$_POST["name_act"]."','".$_POST["date_act"]."','".$_POST["detail_act"]."','0','".$date_in."','0') "; 
+      $objQuery1 = mysqli_query($conn,$strSQL); 
+      if($objQuery1) 
+      {  
+      // echo "<script type='text/javascript'>alert('successfully');</script>";
+      // echo "<meta http-equiv=refresh content=0;URL=data_news.php>";
+      } 
+      else
+      {    
+      echo "Error Save [".$strSQL."]"; 
+      } 
+  }
 mysqli_close($conn); 
 ?>
 

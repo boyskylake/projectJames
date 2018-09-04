@@ -111,50 +111,50 @@
                   <p class="active nav-link">ข่าวประชาสัมพัมพันธ์ งานบริการสารสนเทศ</p>
                 </li>
                 <li>
-                <?php
-include("includes/config.php");  
-$sqlCat="SELECT * FROM  nw_news where status_act='1' ";
-    $queryCat1=mysqli_query($conn,$sqlCat);
-    $Num_Rows1 = mysqli_num_rows($queryCat1);
+<?php
+  include("includes/config.php");  
+  $sqlCat="SELECT * FROM  nw_news where status_act='1' ";
+      $queryCat1=mysqli_query($conn,$sqlCat);
+      $Num_Rows1 = mysqli_num_rows($queryCat1);
 
-    $Per_Page1 = 3;   // Per Page
-    if (isset($_GET["Page1"])) {
-      $Page1 = $_GET["Page1"];
-    }
+      $Per_Page1 = 3;   // Per Page
+      if (isset($_GET["Page1"])) {
+        $Page1 = $_GET["Page1"];
+      }
 
-    if(!isset($_GET["Page1"]))
-    {
-      $Page1 = 1;
-    }
+      if(!isset($_GET["Page1"]))
+      {
+        $Page1 = 1;
+      }
 
-    $Prev_Page1 = $Page1 - 1;
-    $Next_Page1 = $Page1 + 1;
+      $Prev_Page1 = $Page1 - 1;
+      $Next_Page1 = $Page1 + 1;
 
-    $Page_Start1 = (($Per_Page1*$Page1)-$Per_Page1);
-    if($Num_Rows1<=$Per_Page1)
-    {
-      $Num_Pages1 =1;
-    }
-    else if(($Num_Rows1 % $Per_Page1)==0)
-    {
-      $Num_Pages1 =($Num_Rows1/$Per_Page1) ;
-    }
-    else
-    {
-      $Num_Pages1 =($Num_Rows1/$Per_Page1)+1;
-      $Num_Pages1 = (int)$Num_Pages1;
-    }
+      $Page_Start1 = (($Per_Page1*$Page1)-$Per_Page1);
+      if($Num_Rows1<=$Per_Page1)
+      {
+        $Num_Pages1 =1;
+      }
+      else if(($Num_Rows1 % $Per_Page1)==0)
+      {
+        $Num_Pages1 =($Num_Rows1/$Per_Page1) ;
+      }
+      else
+      {
+        $Num_Pages1 =($Num_Rows1/$Per_Page1)+1;
+        $Num_Pages1 = (int)$Num_Pages1;
+      }
 
-    $sqlCat.=" order  by id_act desc LIMIT $Page_Start1 , $Per_Page1";
-    $queryCat1  = mysqli_query($conn,$sqlCat);
+      $sqlCat.=" order  by id_act desc LIMIT $Page_Start1 , $Per_Page1";
+      $queryCat1  = mysqli_query($conn,$sqlCat);
 
 
-    echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
-    $intRows1 = 0;
-    while($resutCat=mysqli_fetch_array($queryCat1))
-    {
-      echo "<td>"; 
-      $intRows1++;
+      echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
+      $intRows1 = 0;
+      while($resutCat=mysqli_fetch_array($queryCat1))
+      {
+        echo "<td>"; 
+        $intRows1++;
 ?>
 
       <table cellspacing="10" cellpadding="5" width="100%">
@@ -378,7 +378,7 @@ $sqlCat="SELECT * FROM  nt_act where status_act='1' ";
       else
       {
           echo "";
-        echo "<b> $i </b>";
+        echo "<b> หน้า $i </b>";
       }
     }
     if($Page!=$Num_Pages)

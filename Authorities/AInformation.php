@@ -103,14 +103,15 @@ $totalPages_information = ceil($totalRows_information/$maxRows_information)-1;
                 <thead>
                   
                 <tr>
-                  <th>id</th>
-                  <th>information_library</th>
-                  <th>information_history</th>
-                  <th>information_philosophy</th>
-                  <th>information_vision</th>
-                  <th>information_mission</th>
-                  <th>data</th>
-                  <th colspan="2">จัดการข้อมูล</th>
+                  <th>ที่</th>
+                  <th>ห้องสมุด</th>
+                  <th>ประวัติ</th>
+                  <th>ปรัชญา</th>
+                  <th>วิสัยทัศน์</th>
+                  <th>พันธกิจ</th>
+                  <th>เวลา</th>
+                  <th>แก้ไข</th>
+                  <th>ลบข้อมูล</th>
                 </tr>
                 </thead>
                 <?php do { ?>

@@ -37,12 +37,25 @@
                 <li class="nav-item">
                   <a class="active nav-link" href="#">ประวัติห้องสมุด</a>
                 </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">AAAAAAAAAAAAAAAAAAAAAAAA</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">Item</a>
-                </li>
+                 <br>
+              <?php 
+                   include("includes/config.php");  
+                    $sql = "SELECT * FROM `information`";
+                      $query = mysqli_query($conn,$sql);
+
+                while($resut = mysqli_fetch_array($query))
+                {
+               ?>
+               <h2 align="center"><?php echo $resut['information_library'];  ?></h2>
+                <dl class="row">
+                  <dt class="col-sm-3">ปรัชญา</dt>
+                  <dd class="col-sm-9"><?php echo $resut['information_history'];  ?></dd>
+                </dl>
+                <br>
+                <?php 
+                }
+                 ?>
+
               </ul>
             </ul>
           </div>

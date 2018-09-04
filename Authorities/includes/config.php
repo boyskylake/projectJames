@@ -1,4 +1,9 @@
 <?php
+// $servername = "127.0.0.1";
+// $username = "root";
+// $password = "";
+// $database = "library_11";
+
 $servername = "127.0.0.1:51335";
 $username = "azure";
 $password = "6#vWHD_$";
