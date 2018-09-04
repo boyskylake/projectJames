@@ -41,8 +41,8 @@ $res =  $objQuery->fetch_assoc();
       $objQuery1 = mysqli_query($conn,$strSQL); 
       if($objQuery1) 
       {  
-      // echo "<script type='text/javascript'>alert('successfully');</script>";
-      // echo "<meta http-equiv=refresh content=0;URL=data_news.php>";
+      echo "<script type='text/javascript'>alert('successfully');</script>";
+      echo "<meta http-equiv=refresh content=0;URL=data_news.php>";
       } 
       else
       {    
