@@ -27,7 +27,8 @@ $res =  $objQuery1->fetch_assoc();
   $name = $res['name_act'];
 
   if ($name == $name_act) {
-      
+
+        echo "มีชื่อนี้แล้ว กรุณาใส่ชื่ออื่น";      
         echo "<meta http-equiv=refresh content=3;URL=data_act_add.php>";
         exit();
   }
@@ -37,7 +38,7 @@ $res =  $objQuery1->fetch_assoc();
       $strSQL = "INSERT INTO nt_act ";
       $strSQL .="(name_act,date_act,detail_act,id_photo,date_in,status_act) "; 
       $strSQL .="VALUES "; 
-      $strSQL .="('".$_POST["name_act"]."','".$_POST["date_act"]."','".$_POST["detail_act"]."','','$date_in','0')"; 
+      $strSQL .="('".$_POST["name_act"]."','".$_POST["date_act"]."','".$_POST["detail_act"]."','0','$date_in','0')"; 
       $objQuery = mysqli_query($conn,$strSQL); 
       if($objQuery) 
       {  

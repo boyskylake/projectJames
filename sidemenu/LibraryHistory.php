@@ -48,7 +48,7 @@
                ?>
                <h2 align="center"><?php echo $resut['information_library'];  ?></h2>
                 <dl class="row">
-                  <dt class="col-sm-3">ปรัชญา</dt>
+                  <dt class="col-sm-3">ประวัติความเป็นมา</dt>
                   <dd class="col-sm-9"><?php echo $resut['information_history'];  ?></dd>
                 </dl>
                 <br>
